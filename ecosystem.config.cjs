@@ -1,0 +1,52 @@
+module.exports = {
+  apps: [
+    {
+      name: 'inngest-server',
+      script: 'npx',
+      args: 'inngest-cli@latest dev -u http://localhost:5000/api/inngest --host 127.0.0.1 --port 3000',
+      cwd: './',
+      instances: 1,
+      autorestart: true,
+      watch: false,
+      max_memory_restart: '512M',
+      env: {
+        NODE_ENV: 'development',
+        NODE_OPTIONS: '--max-old-space-size=512',
+        INNGEST_EVENT_KEY: 'dev',
+        INNGEST_SIGNING_KEY: 'dev',
+        INNGEST_DEV_SERVER: 'true',
+        PORT: '3000',
+      },
+      error_file: './logs/inngest-error.log',
+      out_file: './logs/inngest-out.log',
+      log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
+      merge_logs: true,
+    },
+    {
+      name: 'finance-bot',
+      script: 'npm',
+      args: 'run dev',
+      cwd: './',
+      instances: 1,
+      autorestart: true,
+      watch: false,
+      max_memory_restart: '2048M',
+      node_args: '--max-old-space-size=2048',
+      env: {
+        NODE_ENV: 'development',
+        NODE_OPTIONS: '--max-old-space-size=2048',
+        PORT: '5000',
+        INNGEST_EVENT_KEY: 'dev',
+        INNGEST_SIGNING_KEY: 'dev',
+        INNGEST_DEV_SERVER: 'true',
+        INNGEST_BASE_URL: 'http://127.0.0.1:3000',
+      },
+      error_file: './logs/finance-bot-error.log',
+      out_file: './logs/finance-bot-out.log',
+      log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
+      merge_logs: true,
+      wait_ready: true,
+      listen_timeout: 10000,
+    }
+  ]
+};

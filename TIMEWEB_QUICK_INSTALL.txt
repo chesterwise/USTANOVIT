@@ -1,0 +1,44 @@
+# УСТАНОВКА БОТА НА TIMEWEB UBUNTU 22.04
+
+ssh root@ВАШ_IP
+
+apt update && apt upgrade -y
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+apt install -y nodejs git curl wget
+
+cd /root
+git clone https://github.com/ваш-username/ваш-репозиторий.git finance-bot
+cd finance-bot
+
+nano .env
+# Добавить:
+# TELEGRAM_BOT_TOKEN=ваш_токен
+# NODE_ENV=production
+# PORT=5000
+
+npm install
+npm install -g pm2
+
+npm run build
+
+pm2 start ecosystem.config.cjs --name finance-bot
+pm2 save
+pm2 startup
+
+pm2 logs finance-bot
+
+# КОМАНДЫ УПРАВЛЕНИЯ
+
+pm2 list
+pm2 logs finance-bot
+pm2 restart finance-bot
+pm2 stop finance-bot
+pm2 delete finance-bot
+
+# ОБНОВЛЕНИЕ БОТА
+
+cd /root/finance-bot
+git pull
+npm install
+npm run build
+pm2 restart finance-bot

@@ -1,0 +1,30 @@
+# КАК ЗАГРУЗИТЬ НА GITHUB
+
+## ✅ ПРОЕКТ ОЧИЩЕН!
+- Было: 692 MB, 48000 файлов
+- Стало: 752 KB, 42 файла
+
+## ЗАГРУЗКА (выполнить в Shell):
+
+# 1. Удалить из git кеша лишнее
+git rm -r --cached node_modules .config .cache .upm .local attached_assets .mastra docs 2>/dev/null || true
+
+# 2. Добавить все изменения
+git add .
+
+# 3. Закоммитить
+git commit -m "Clean project: remove unnecessary files and docs"
+
+# 4. Отправить на GitHub
+git push origin main
+
+## Если нужен НОВЫЙ репозиторий:
+git remote add origin https://github.com/ваш-username/название.git
+git branch -M main
+git push -u origin main
+
+## ВАЖНО:
+- Папка docs/ удалена (документация Mastra не нужна)
+- Все дублирующиеся MD файлы удалены
+- .gitignore обновлен
+- node_modules установятся через npm install на сервере

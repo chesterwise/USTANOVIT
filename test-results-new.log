@@ -1,0 +1,89 @@
+⚠️ DATABASE_URL not set, using SQLite fallback for development
+🚀 Начинаем тестирование финансового бота
+
+============================================================
+
+🧪 Тестирование: Команда помощи
+📝 Команда: /start
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Установка баланса банка
+📝 Команда: /bank 1000000
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Проверка баланса банка
+📝 Команда: /bank
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Добавление прибыли
+📝 Команда: +50000 тест прибыли
+✅ SQLite database tables ensured
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Проверка баланса после прибыли
+📝 Команда: /bank
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Общий расход
+📝 Команда: -10000 тест расхода
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Проверка баланса после расхода
+📝 Команда: /bank
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Расход сотрудника ZY
+📝 Команда: -Z5000 расход ZY
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Расход сотрудника MIO
+📝 Команда: -M3000 расход MIO
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Расход сотрудника AO
+📝 Команда: -A2000 расход AO
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Закрытие спора
+📝 Команда: /dispute 1000 спор
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Общая статистика
+📝 Команда: /statistics
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Статистика прибыли
+📝 Команда: /statistics_income
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Статистика расходов
+📝 Команда: /statistics_expense
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Статистика споров
+📝 Команда: /statistics_disputes
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+
+🧪 Тестирование: Расходы сотрудников
+📝 Команда: /statistics_employees
+❌ Исключение: TypeError: Cannot read properties of undefined (reading 'getStorage')
+
+============================================================
+
+🎉 Тестирование завершено!
+
